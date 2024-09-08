@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NotPageFoundComponent } from './404/404.component';
 import { PagesModule } from './pages/pages.module';
+import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,9 @@ import { PagesModule } from './pages/pages.module';
     AppRoutingModule,
     PagesModule
   ],
-  providers: [],
+  providers: [
+    provideCharts(withDefaultRegisterables())
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

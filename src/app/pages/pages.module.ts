@@ -6,19 +6,20 @@ import { PagesComponent } from './pages.component';
 import { Grafica1Component } from './grafica1/grafica1.component';
 import { SharedModule } from '../shared/shared.module';
 import { RouterModule } from '@angular/router';
-
-
+import { FormsModule } from '@angular/forms';
+import { ComponentsModule } from '../components/components.module';
+import { BaseChartDirective  } from 'ng2-charts';
 
 
 @NgModule({
   /**
-   * Cuando se usa declarations esto permitira el uso de los componentes dentro del mismo modulo
+   * Cuando se usa declarations esto permite que el uso de los componentes dentro del mismo modulo
    */
   declarations: [
     DashboardComponent,
     ProgressComponent,
     PagesComponent,
-    Grafica1Component
+    Grafica1Component,
   ],
   /**
    * Cuando se usa el exports otros modulos prodran usar los componentes del modulo que emite los componentes
@@ -32,7 +33,10 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     SharedModule,
-    RouterModule
+    RouterModule,
+    FormsModule,
+    BaseChartDirective,
+    ComponentsModule
   ]
 })
 export class PagesModule { }
