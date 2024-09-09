@@ -9,6 +9,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { ComponentsModule } from '../components/components.module';
 import { BaseChartDirective  } from 'ng2-charts';
+import { AccountSettingsComponent } from './account-settings/account-settings.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { BaseChartDirective  } from 'ng2-charts';
     ProgressComponent,
     PagesComponent,
     Grafica1Component,
+    AccountSettingsComponent,
   ],
   /**
    * Cuando se usa el exports otros modulos prodran usar los componentes del modulo que emite los componentes
@@ -28,7 +30,8 @@ import { BaseChartDirective  } from 'ng2-charts';
     DashboardComponent,
     ProgressComponent,
     PagesComponent,
-    Grafica1Component
+    Grafica1Component,
+    AccountSettingsComponent
   ],
   imports: [
     CommonModule,
