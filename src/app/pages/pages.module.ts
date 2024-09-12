@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { ComponentsModule } from '../components/components.module';
 import { BaseChartDirective  } from 'ng2-charts';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
+import { RxjsComponent } from './rxjs/rxjs.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
     PagesComponent,
     Grafica1Component,
     AccountSettingsComponent,
+    RxjsComponent,
   ],
   /**
    * Cuando se usa el exports otros modulos prodran usar los componentes del modulo que emite los componentes
