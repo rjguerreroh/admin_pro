@@ -10,8 +10,10 @@
     <div class="card-body">
       <form
         class="form-horizontal form-material"
+        autocomplete="off"
         id="loginform"
-        action="index.html"
+        (ngSubmit)="crearUsuario()"
+        [formGroup]="registerForm"
       >
         <a href="javascript:void(0)" class="text-center db"
           ><img src="../assets/images/logo-icon.png" alt="Home" /><br /><img
@@ -27,6 +29,7 @@
               type="text"
               required=""
               placeholder="Name"
+              formControlName="nombre"
             />
           </div>
         </div>
@@ -37,6 +40,7 @@
               type="text"
               required=""
               placeholder="Email"
+              formControlName="email"
             />
           </div>
         </div>
@@ -47,6 +51,7 @@
               type="password"
               required=""
               placeholder="Password"
+              formControlName="password"
             />
           </div>
         </div>
@@ -57,13 +62,14 @@
               type="password"
               required=""
               placeholder="Confirm Password"
+              formControlName="password2"
             />
           </div>
         </div>
         <div class="form-group row">
           <div class="col-md-12">
             <div class="checkbox checkbox-primary p-t-0">
-              <input id="checkbox-signup" type="checkbox" />
+              <input formControlName="terminos" id="checkbox-signup" type="checkbox" />
               <label for="checkbox-signup">
                 I agree to all <a href="#">Terms</a></label
               >
@@ -80,11 +86,22 @@
             </button>
           </div>
         </div>
+
+        <div class="row">
+          <div class="col text-danger">
+            <p *ngIf="campoNoValido('nombre')">* El nombre es obligatorio</p>
+            <p *ngIf="campoNoValido('email')">* El email es obligatorio y tiene que ser valido</p>
+            <p *ngIf="contrasenaNoValidas()">* Las contraseñas deben ser iguales</p>
+            <p *ngIf="aceptaTerminos()">* Debe de aceptar los terminos de uso</p>
+
+          </div>
+        </div>
+
         <div class="form-group m-b-0">
           <div class="col-sm-12 text-center">
             <p>
               Already have an account?
-              <a href="pages-login-2.html" class="text-info m-l-5"
+              <a routerLink="/login" class="text-info m-l-5"
                 ><b>Sign In</b></a
               >
             </p>
