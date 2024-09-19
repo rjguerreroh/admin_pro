@@ -1,0 +1,70 @@
+<div class="row">
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Sample Form with the Icons</h4>
+        <h6 class="card-subtitle">made with bootstrap elements</h6>
+        <form class="form p-t-20" [formGroup]="perfilForm" (ngSubmit)="actualizarPerfil()">
+          <div class="form-group">
+            <label for="exampleInputuname">Nombre usuario</label>
+            <div class="input-group">
+              <div class="input-group-addon"><i class="ti-user"></i></div>
+              <input
+                type="text"
+                class="form-control"
+                id="exampleInputuname"
+                placeholder="Username"
+                formControlName="nombre"
+              />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Correo electronico</label>
+            <div class="input-group">
+              <div class="input-group-addon"><i class="ti-email"></i></div>
+              <input
+                type="email"
+                class="form-control"
+                id="exampleInputEmail1"
+                placeholder="Enter email"
+                formControlName="email"
+                [readOnly]="usuario.google"
+              />
+            </div>
+          </div>
+          {{perfilForm.status}}
+          <button
+            type="submit"
+            class="btn btn-success btn-block waves-effect waves-light m-r-10">
+            <i class="fa fa-save"></i>
+            Guardar cambios
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Avatar</h4>
+        <h6 class="card-subtitle">Imagen del usuario</h6>
+        <div class="text-center m-t-15 m-b-15">
+          <img *ngIf="!imgTemp" class="img-avatar" [src]="usuario.imagenUrl">
+          <img *ngIf="imgTemp" class="img-avatar" [src]="imgTemp">
+        </div>
+        <input type="file" name="" id="" (change)="cambiarImagen($event)">
+        <br>
+        <br>
+        <button
+            type="button"
+            class="btn btn-success waves-effect btn-block waves-light m-r-10"
+            (click)="subirImagen()"
+          >
+            <i class="fa fa-save"></i>
+            cambiar imagen
+          </button>
+
+      </div>
+    </div>
+  </div>
+</div>

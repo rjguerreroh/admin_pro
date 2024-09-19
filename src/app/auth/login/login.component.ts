@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
   ) { }
 
   ngAfterViewInit(): void {
-    this.googleInit();
+    /* this.googleInit(); */
   }
 
   googleInit(){
@@ -40,9 +40,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
   }
 
   handleCredentialResponse(response: any){
-    console.log("Encoded JWT ID Token: ", response.credential );
     this.usuarioService.loginGoogle(response.credential).subscribe( resp => {
-      console.log("login", resp);
       this.router.navigateByUrl('/');
     });
   }
@@ -72,7 +70,6 @@ export class LoginComponent implements OnInit, AfterViewInit {
           localStorage.removeItem('email');
         }
         // Manejar la respuesta del login exitoso
-        console.log('Login successful', response);
         // Navegar si es necesario
         this.router.navigateByUrl('/');
       },

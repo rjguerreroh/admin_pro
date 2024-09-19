@@ -26,6 +26,7 @@ export class RegisterComponent {
     private fb: FormBuilder,
     private usuarioService: UsuarioService,
     private router: Router,
+    
   ) { }
 
   crearUsuario(){

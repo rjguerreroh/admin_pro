@@ -6,11 +6,12 @@ import { PagesComponent } from './pages.component';
 import { Grafica1Component } from './grafica1/grafica1.component';
 import { SharedModule } from '../shared/shared.module';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ComponentsModule } from '../components/components.module';
 import { BaseChartDirective  } from 'ng2-charts';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
+import { PerfilComponent } from './perfil/perfil.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { RxjsComponent } from './rxjs/rxjs.component';
     Grafica1Component,
     AccountSettingsComponent,
     RxjsComponent,
+    PerfilComponent,
   ],
   /**
    * Cuando se usa el exports otros modulos prodran usar los componentes del modulo que emite los componentes
@@ -41,7 +43,8 @@ import { RxjsComponent } from './rxjs/rxjs.component';
     RouterModule,
     FormsModule,
     BaseChartDirective,
-    ComponentsModule
+    ComponentsModule,
+    ReactiveFormsModule,
   ]
 })
 export class PagesModule { }
