@@ -12,7 +12,7 @@ import Swal from 'sweetalert2';
 })
 export class PerfilComponent implements OnInit {
   public perfilForm!: FormGroup;
-  public usuario!: Usuario
+  public usuario!: Usuario;
   public imagenSubir!: File;
   public imgTemp: any;
 
@@ -70,7 +70,6 @@ export class PerfilComponent implements OnInit {
   }
 
   subirImagen() {
-    console.log("llego aqui")
     this.fileUploadService.actualizarFoto(this.imagenSubir, 'usuarios', this.usuario.uid || '')
       .then(img => {
         this.usuario.img = img;

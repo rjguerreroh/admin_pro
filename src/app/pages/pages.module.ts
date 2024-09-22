@@ -12,6 +12,7 @@ import { BaseChartDirective  } from 'ng2-charts';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 import { PerfilComponent } from './perfil/perfil.component';
+import { UsuairosComponent } from './mantenimientos/usuairos/usuairos.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { PerfilComponent } from './perfil/perfil.component';
     AccountSettingsComponent,
     RxjsComponent,
     PerfilComponent,
+    UsuairosComponent,
   ],
   /**
    * Cuando se usa el exports otros modulos prodran usar los componentes del modulo que emite los componentes
