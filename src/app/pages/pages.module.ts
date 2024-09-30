@@ -13,6 +13,10 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
 import { RxjsComponent } from './rxjs/rxjs.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { UsuairosComponent } from './mantenimientos/usuairos/usuairos.component';
+import { HospitalesComponent } from './mantenimientos/hospitales/hospitales.component';
+import { MedicosComponent } from './mantenimientos/medicos/medicos.component';
+import { PipesModule } from '../pipes/pipes.module';
+import { MedicoComponent } from './mantenimientos/medicos/medico.component';
 
 
 @NgModule({
@@ -28,6 +32,9 @@ import { UsuairosComponent } from './mantenimientos/usuairos/usuairos.component'
     RxjsComponent,
     PerfilComponent,
     UsuairosComponent,
+    HospitalesComponent,
+    MedicosComponent,
+    MedicoComponent,
   ],
   /**
    * Cuando se usa el exports otros modulos prodran usar los componentes del modulo que emite los componentes
@@ -47,6 +54,7 @@ import { UsuairosComponent } from './mantenimientos/usuairos/usuairos.component'
     BaseChartDirective,
     ComponentsModule,
     ReactiveFormsModule,
+    PipesModule
   ]
 })
 export class PagesModule { }
