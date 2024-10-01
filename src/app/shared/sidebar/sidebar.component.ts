@@ -11,7 +11,7 @@ import { Usuario } from '../../models/usuario.model';
 export class SidebarComponent {
   menuItems: any[];
   public usuario?: Usuario;
-  constructor( private sidebarService: SidebarService, private usuarioService: UsuarioService ){
+  constructor( public sidebarService: SidebarService, private usuarioService: UsuarioService ){
     this.menuItems = sidebarService.menu;
     this.usuario = usuarioService.usuario;
     /* this.imgUrl = usuarioService.usuario?.imagenUrl; */

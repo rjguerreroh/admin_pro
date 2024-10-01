@@ -46,11 +46,17 @@ export class UsuarioService {
 
   }
 
+  guardarLocalStorage(token: string, menu:any){
+    localStorage.setItem('token', token);
+    localStorage.setItem('menu', JSON.stringify(menu) );
+  }
+
   logout() {
     localStorage.removeItem('token');
-    google.accounts.id.revoke('rjguerreroh@gmail.com', () => {
+    localStorage.removeItem('menu');
+ /*    google.accounts.id.revoke('rjguerreroh@gmail.com', () => {
       this.router.navigateByUrl('/login');
-    })
+    }) */
     /*       this.auth2.signOut().then(() => {
     
             this.ngZone.run(() => {
@@ -69,7 +75,7 @@ export class UsuarioService {
       map((resp: any) => {
         const { email, google, nombre, role, img = '', uid } = resp.usuario;
         this.usuario = new Usuario(nombre, email, '', google, img, role, uid);
-        localStorage.setItem('token', resp.token);
+        this.guardarLocalStorage(resp.token, resp.menu);
         return true;
       }),
       catchError(error => of(false))
@@ -77,10 +83,9 @@ export class UsuarioService {
   }
 
   crearUsuario(formData: RegisterForm) {
-    console.log("formaDaa", formData);
     return this.http.post(`${base_url}/usuarios`, formData).pipe(
       tap((resp: any) => {
-        localStorage.setItem('token', resp.token);
+        this.guardarLocalStorage(resp.token, resp.menu);
       })
     )
   }
@@ -88,7 +93,7 @@ export class UsuarioService {
   login(formData: LoginForm) {
     return this.http.post(`${base_url}/login`, formData).pipe(
       tap((resp: any) => {
-        localStorage.setItem('token', resp.token);
+        this.guardarLocalStorage(resp.token, resp.menu);
       })
     );
   }
@@ -96,8 +101,7 @@ export class UsuarioService {
   loginGoogle(token: string) {
     return this.http.post(`${base_url}/login/google`, { token }).pipe(
       tap((resp: any) => {
-        console.log(resp)
-        localStorage.setItem('token', resp.token);
+        this.guardarLocalStorage(resp.token, resp.menu);
       })
     )
   }
@@ -146,5 +150,9 @@ export class UsuarioService {
         'x-token': this.token
       }
     })
+  }
+
+  get role(): 'ADMIN_ROLE' | 'USER_ROLE' {
+    return this.usuario.role || 'USER_ROLE';
   }
 }

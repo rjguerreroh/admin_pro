@@ -56,4 +56,12 @@ export class BusquedasService {
     )
   }
 
+  busquedaGlobal(termino: string) {
+    return this.http.get<any[]>(`${base_url}/todo/${ termino }`, {
+      headers: {
+        'x-token': this.token
+      }
+    });
+  }
+
 }

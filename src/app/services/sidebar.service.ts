@@ -1,11 +1,24 @@
 import { Injectable } from '@angular/core';
+interface SidebarMenuItem {
+  icono: string;
+  titulo: string;
+  submenu: { titulo: string; url: string }[];
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class SidebarService {
 
-  menu: any[] = [
+  public menu: SidebarMenuItem[] = [];
+
+  constructor() { }
+
+  cargarMenu() {
+    this.menu = JSON.parse(localStorage.getItem('menu') || '') || [];
+  }
+
+  /* menu: any[] = [
     {
       titulo: 'Dashboard',
       icono: 'mdi mdi-gauge',
@@ -25,7 +38,5 @@ export class SidebarService {
         { titulo: 'Medicos', url: 'medicos'},
       ]
     },
-  ]
-
-  constructor() { }
+  ] */
 }
